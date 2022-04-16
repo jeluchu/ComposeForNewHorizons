@@ -1,15 +1,20 @@
 package com.jeluchu.composefornewhorizons.features.bugs.view
 
+import androidx.compose.foundation.ExperimentalFoundationApi
+import androidx.compose.foundation.lazy.GridCells
+import androidx.compose.foundation.lazy.LazyVerticalGrid
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.unit.dp
+import androidx.compose.foundation.lazy.items
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.jeluchu.composefornewhorizons.core.ui.theme.artichoke
 import com.jeluchu.composefornewhorizons.core.ui.theme.cream
 import com.jeluchu.composefornewhorizons.features.bugs.viewmodel.BugsViewModel
 
+@OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun BugsView(
     vm: BugsViewModel = hiltViewModel()
@@ -66,7 +71,20 @@ fun BugsView(
         when{
 
             // Once our request has finished uploading and the data we have requested are not empty
-            !state.isLoading && state.data.isNotEmpty() -> {}
+            !state.isLoading && state.data.isNotEmpty() -> {
+
+                // With LazyVerticalGrid we create a Grid list in which we can put several items
+                // by columns, in this case we will put 2 cells so we will have, we indicate it
+                // with GridCells.Fixed(2) or GridCells.Adaptive(20.dp)
+                LazyVerticalGrid(
+                    cells = GridCells.Fixed(2)
+                ) {
+                    items(state.data) { item ->
+                        Text(text = item.name.nameEUen)
+                    }
+                }
+
+            }
 
             // Once our request has finished loading and the data we have requested
             // does not contain data due to some kind of error.

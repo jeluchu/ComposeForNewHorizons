@@ -24,7 +24,7 @@ data class BugsItemEntity(
     @SerializedName("museum-phrase")
     val museumPhrase: String?,
     @SerializedName("name")
-    val name: Name?,
+    val name: NameEntity?,
     @SerializedName("price")
     val price: Int?,
     @SerializedName("price-flick")
@@ -35,7 +35,7 @@ data class BugsItemEntity(
         altCatchPhrase = altCatchPhrase.orEmpty(),
         availability = availability ?: Availability.empty(),
         catchPhrase = catchPhrase.orEmpty(),
-        name = name ?: Name.empty(),
+        name = name?.toName() ?: Name.empty(),
         fileName = fileName.orEmpty(),
         iconUri = iconUri.orEmpty(),
         id = id.orEmpty(),
@@ -51,7 +51,7 @@ data class BugsItemEntity(
             altCatchPhrase = emptyList(),
             availability = Availability.empty(),
             catchPhrase = String.empty(),
-            name = Name.empty(),
+            name = NameEntity.empty(),
             fileName = String.empty(),
             iconUri = String.empty(),
             id = Int.empty(),

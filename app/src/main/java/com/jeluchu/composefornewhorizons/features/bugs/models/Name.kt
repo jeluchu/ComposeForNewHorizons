@@ -1,37 +1,22 @@
 package com.jeluchu.composefornewhorizons.features.bugs.models
 
-import com.google.gson.annotations.SerializedName
 import com.jeluchu.jchucomponentscompose.core.extensions.strings.empty
 
 data class Name(
-    @SerializedName("name-CNzh")
-    val nameCNzh: String?,
-    @SerializedName("name-EUde")
-    val nameEUde: String?,
-    @SerializedName("name-EUen")
-    val nameEUen: String?,
-    @SerializedName("name-EUes")
-    val nameEUes: String?,
-    @SerializedName("name-EUfr")
-    val nameEUfr: String?,
-    @SerializedName("name-EUit")
-    val nameEUit: String?,
-    @SerializedName("name-EUnl")
-    val nameEUnl: String?,
-    @SerializedName("name-EUru")
-    val nameEUru: String?,
-    @SerializedName("name-JPja")
-    val nameJPja: String?,
-    @SerializedName("name-KRko")
-    val nameKRko: String?,
-    @SerializedName("name-TWzh")
-    val nameTWzh: String?,
-    @SerializedName("name-USen")
-    val nameUSen: String?,
-    @SerializedName("name-USes")
-    val nameUSes: String?,
-    @SerializedName("name-USfr")
-    val nameUSfr: String?
+    val nameCNzh: String,
+    val nameEUde: String,
+    val nameEUen: String,
+    val nameEUes: String,
+    val nameEUfr: String,
+    val nameEUit: String,
+    val nameEUnl: String,
+    val nameEUru: String,
+    val nameJPja: String,
+    val nameKRko: String,
+    val nameTWzh: String,
+    val nameUSen: String,
+    val nameUSes: String,
+    val nameUSfr: String
 ) {
 
     companion object {
