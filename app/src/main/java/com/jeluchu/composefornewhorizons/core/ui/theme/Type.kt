@@ -1,4 +1,4 @@
-package com.jeluchu.composefornewhorizons.ui.theme
+package com.jeluchu.composefornewhorizons.core.ui.theme
 
 import androidx.compose.material.Typography
 import androidx.compose.ui.text.TextStyle

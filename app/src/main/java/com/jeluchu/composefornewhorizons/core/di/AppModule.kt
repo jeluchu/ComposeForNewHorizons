@@ -3,6 +3,7 @@ package com.jeluchu.composefornewhorizons.core.di
 import androidx.multidex.BuildConfig
 import com.jeluchu.composefornewhorizons.ComposeForNewHorizons
 import com.jeluchu.composefornewhorizons.core.network.Environments
+import com.jeluchu.composefornewhorizons.features.bugs.repository.BugsRepository
 import com.jeluchu.jchucomponentscompose.utils.network.RetrofitClient
 import com.jeluchu.jchucomponentscompose.utils.network.interceptors.Interceptor
 import com.jeluchu.jchucomponentscompose.utils.network.interceptors.InterceptorHeaders
@@ -40,5 +41,10 @@ object AppModule {
     @Singleton
     @Provides
     fun provideRetrofitBuilder(): RetrofitClient = RetrofitClient
+
+    @Provides
+    fun provideBugsRepository(
+        dataSource: BugsRepository.BugsRepositoryImpl
+    ): BugsRepository = dataSource
 
 }

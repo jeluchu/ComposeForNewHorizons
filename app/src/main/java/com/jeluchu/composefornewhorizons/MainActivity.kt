@@ -10,7 +10,8 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.jeluchu.composefornewhorizons.ui.theme.ComposeForNewHorizonsTheme
+import com.jeluchu.composefornewhorizons.core.ui.theme.ComposeForNewHorizonsTheme
+import com.jeluchu.composefornewhorizons.features.bugs.view.BugsView
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -19,12 +20,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             ComposeForNewHorizonsTheme {
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colors.background
-                ) {
-                    Text(text = "The world is a Vampire!")
-                }
+                BugsView()
             }
         }
     }
