@@ -68,7 +68,7 @@ dependencies {
     implementation("androidx.compose.animation:animation:1.1.1")
     implementation("androidx.compose.runtime:runtime:1.1.1")
     implementation("androidx.constraintlayout:constraintlayout-compose:1.0.0")
-    implementation("androidx.navigation:navigation-compose:2.4.1")
+    implementation("androidx.navigation:navigation-compose:2.4.2")
 
     // HILT ----------------------------------------------------------------------------------------
     implementation("com.google.dagger:hilt-android:2.41")
