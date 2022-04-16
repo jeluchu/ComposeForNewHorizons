@@ -48,7 +48,7 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.0")
 
     // JELUCHU CORE --------------------------------------------------------------------------------
-    implementation("com.github.jeluchu:jchucomponents-compose:0.7.3")
+    implementation("com.github.Jeluchu:jchucomponents-compose:0.7.6")
 
     // ANDROIDX LIBRARY ----------------------------------------------------------------------------
     implementation("androidx.core:core-ktx:1.7.0")
@@ -69,6 +69,9 @@ dependencies {
     implementation("androidx.compose.runtime:runtime:1.1.1")
     implementation("androidx.constraintlayout:constraintlayout-compose:1.0.0")
     implementation("androidx.navigation:navigation-compose:2.4.2")
+
+    // GOOGLE LIBRARY ------------------------------------------------------------------------------
+    implementation("com.google.accompanist:accompanist-systemuicontroller:0.23.1")
 
     // HILT ----------------------------------------------------------------------------------------
     implementation("com.google.dagger:hilt-android:2.41")

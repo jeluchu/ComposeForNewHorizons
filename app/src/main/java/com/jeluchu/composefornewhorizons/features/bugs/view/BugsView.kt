@@ -12,11 +12,13 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.unit.dp
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.runtime.SideEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.text.style.TextAlign
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import com.jeluchu.composefornewhorizons.core.ui.theme.artichoke
 import com.jeluchu.composefornewhorizons.core.ui.theme.cream
 import com.jeluchu.composefornewhorizons.features.bugs.viewmodel.BugsViewModel
@@ -32,6 +34,33 @@ fun BugsView(
     // From here we will control and observe the status of our requests
     // communicated to us by the ViewModel
     val state by vm.state.collectAsState()
+
+    // With Accompanist System UI Controller we can start customising
+    // certain components of the system (Accompanist is a group of libraries
+    // that contain commonly used elements but are still in an experimental phase)
+    val systemUiController = rememberSystemUiController()
+    val useDarkIcons = MaterialTheme.colors.isLight
+
+    SideEffect {
+        // Update all of the system bar colors to be transparent, and use
+        // dark icons if we're in light theme
+        systemUiController.setSystemBarsColor(
+            color = cream,
+            darkIcons = useDarkIcons
+        )
+
+        systemUiController.setNavigationBarColor(
+            color = cream,
+            darkIcons = useDarkIcons
+        )
+
+        systemUiController.setStatusBarColor(
+            color = cream,
+            darkIcons = useDarkIcons
+        )
+
+    }
+
 
     // Scaffold: Generic template with various components commonly used on Android screens
     Scaffold(
