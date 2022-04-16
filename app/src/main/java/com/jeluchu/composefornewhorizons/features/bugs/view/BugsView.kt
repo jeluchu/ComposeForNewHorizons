@@ -1,21 +1,20 @@
 package com.jeluchu.composefornewhorizons.features.bugs.view
 
+import androidx.compose.animation.*
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.GridCells
 import androidx.compose.foundation.lazy.LazyVerticalGrid
 import androidx.compose.material.*
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.getValue
 import androidx.compose.ui.unit.dp
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.runtime.SideEffect
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.text.style.TextAlign
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
@@ -34,6 +33,9 @@ fun BugsView(
     // From here we will control and observe the status of our requests
     // communicated to us by the ViewModel
     val state by vm.state.collectAsState()
+
+    val isShow = remember { mutableStateOf(false) }
+    val density = LocalDensity.current
 
     // With Accompanist System UI Controller we can start customising
     // certain components of the system (Accompanist is a group of libraries
@@ -84,7 +86,7 @@ fun BugsView(
         floatingActionButtonPosition = FabPosition.End,
         floatingActionButton = {
             FloatingActionButton(
-                onClick = {},
+                onClick = { isShow.value = !isShow.value },
                 backgroundColor = artichoke,
                 elevation = FloatingActionButtonDefaults.elevation(
                     defaultElevation = 0.dp,
@@ -101,9 +103,28 @@ fun BugsView(
         // BottomBar: Normally used to implement a menu at the bottom with icons,
         // you can design a menu or put any kind of design inside this area
         bottomBar = {
-            BottomAppBar(
-                backgroundColor = cream
-            ) { Text("BottomAppBar") }
+
+            // With AnimatedVisibility we can hide a Composable by passing
+            // a boolean from the visible parameter, we can even customise
+            // the transition in and out
+            AnimatedVisibility(
+                visible = isShow.value,
+                enter = slideInVertically {
+                    with(density) { 40.dp.roundToPx() }
+                } + expandVertically(
+                    expandFrom = Alignment.Top
+                ) + fadeIn(
+                    initialAlpha = 0.3f
+                ),
+                exit = slideOutVertically{
+                    with(density) { 40.dp.roundToPx() }
+                } + shrinkVertically() + fadeOut()
+            ) {
+                BottomAppBar(
+                    backgroundColor = cream
+                ) { Text("BottomAppBar") }
+            }
+
         }
     ) {
         when{
