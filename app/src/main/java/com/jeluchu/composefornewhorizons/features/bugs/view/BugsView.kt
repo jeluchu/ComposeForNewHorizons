@@ -1,6 +1,8 @@
 package com.jeluchu.composefornewhorizons.features.bugs.view
 
 import androidx.compose.foundation.ExperimentalFoundationApi
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.GridCells
 import androidx.compose.foundation.lazy.LazyVerticalGrid
 import androidx.compose.material.*
@@ -9,10 +11,17 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.unit.dp
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.text.style.TextAlign
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.jeluchu.composefornewhorizons.core.ui.theme.artichoke
 import com.jeluchu.composefornewhorizons.core.ui.theme.cream
 import com.jeluchu.composefornewhorizons.features.bugs.viewmodel.BugsViewModel
+import com.jeluchu.jchucomponentscompose.ui.images.NetworkImage
+import com.jeluchu.jchucomponentscompose.ui.modifier.cornerRadius
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
@@ -77,10 +86,48 @@ fun BugsView(
                 // by columns, in this case we will put 2 cells so we will have, we indicate it
                 // with GridCells.Fixed(2) or GridCells.Adaptive(20.dp)
                 LazyVerticalGrid(
-                    cells = GridCells.Fixed(2)
+                    cells = GridCells.Fixed(2),
+                    modifier = Modifier
+                        .background(cream)
+                        .padding(horizontal = 10.dp)
                 ) {
                     items(state.data) { item ->
-                        Text(text = item.name.nameEUen)
+
+                        Column(
+                            modifier = Modifier
+                                .height(150.dp)
+                                .padding(
+                                    horizontal = 10.dp,
+                                    vertical = 5.dp
+                                )
+                                .clip(RoundedCornerShape(16.dp))
+                                .background(artichoke.copy(.15f)),
+                            verticalArrangement = Arrangement.Center,
+                            horizontalAlignment = Alignment.CenterHorizontally
+                        ) {
+
+                            // NetworkImage is a custom component I have made that extends
+                            // the Composable made in the Coil library
+                            // (https://coil-kt.github.io/coil/compose/)
+                            // compatible with Compose, and 100% in Kotlin with
+                            // Coroutines compatibility
+                            NetworkImage(
+                                modifier = Modifier
+                                    .size(80.dp)
+                                    .clip(16.cornerRadius())
+                                    .background(artichoke.copy(.3f)),
+                                url = item.imageUri
+                            )
+                            
+                            Text(
+                                modifier = Modifier.padding(top = 10.dp),
+                                text = item.name.nameEUen,
+                                textAlign = TextAlign.Center,
+                                maxLines = 1
+                            )
+
+                        }
+
                     }
                 }
 
