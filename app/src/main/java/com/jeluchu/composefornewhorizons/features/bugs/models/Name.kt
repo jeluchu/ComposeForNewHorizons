@@ -1,34 +1,58 @@
 package com.jeluchu.composefornewhorizons.features.bugs.models
 
 import com.google.gson.annotations.SerializedName
+import com.jeluchu.jchucomponentscompose.core.extensions.strings.empty
 
 data class Name(
     @SerializedName("name-CNzh")
-    val nameCNzh: String,
+    val nameCNzh: String?,
     @SerializedName("name-EUde")
-    val nameEUde: String,
+    val nameEUde: String?,
     @SerializedName("name-EUen")
-    val nameEUen: String,
+    val nameEUen: String?,
     @SerializedName("name-EUes")
-    val nameEUes: String,
+    val nameEUes: String?,
     @SerializedName("name-EUfr")
-    val nameEUfr: String,
+    val nameEUfr: String?,
     @SerializedName("name-EUit")
-    val nameEUit: String,
+    val nameEUit: String?,
     @SerializedName("name-EUnl")
-    val nameEUnl: String,
+    val nameEUnl: String?,
     @SerializedName("name-EUru")
-    val nameEUru: String,
+    val nameEUru: String?,
     @SerializedName("name-JPja")
-    val nameJPja: String,
+    val nameJPja: String?,
     @SerializedName("name-KRko")
-    val nameKRko: String,
+    val nameKRko: String?,
     @SerializedName("name-TWzh")
-    val nameTWzh: String,
+    val nameTWzh: String?,
     @SerializedName("name-USen")
-    val nameUSen: String,
+    val nameUSen: String?,
     @SerializedName("name-USes")
-    val nameUSes: String,
+    val nameUSes: String?,
     @SerializedName("name-USfr")
-    val nameUSfr: String
-)
+    val nameUSfr: String?
+) {
+
+    companion object {
+
+        fun empty() = Name(
+            nameCNzh = String.empty(),
+            nameEUde = String.empty(),
+            nameEUen = String.empty(),
+            nameEUes = String.empty(),
+            nameEUfr = String.empty(),
+            nameEUit = String.empty(),
+            nameEUnl = String.empty(),
+            nameEUru = String.empty(),
+            nameJPja = String.empty(),
+            nameKRko = String.empty(),
+            nameTWzh = String.empty(),
+            nameUSen = String.empty(),
+            nameUSes = String.empty(),
+            nameUSfr = String.empty()
+        )
+
+    }
+
+}

@@ -1,17 +1,15 @@
 package com.jeluchu.composefornewhorizons.features.bugs.repository
 
-import com.jeluchu.inook.features.art.models.art.ArtsEntity
-import com.jeluchu.inook.features.art.models.artdetails.ArtDetailEntity
+import com.jeluchu.composefornewhorizons.features.bugs.models.BugsEntity
 import retrofit2.Retrofit
 import javax.inject.Inject
 
 class BugsService @Inject constructor(
     retrofit: Retrofit
-) : ArtsApi {
+) : BugsApi {
 
-    private val serviceApi by lazy { retrofit.create(ArtsApi::class.java) }
+    private val serviceApi by lazy { retrofit.create(BugsApi::class.java) }
 
-    override suspend fun getArts(): ArtsEntity = serviceApi.getArts()
-    override suspend fun getArtDetails(id: String): ArtDetailEntity = serviceApi.getArtDetails(id)
+    override suspend fun getBugs(): BugsEntity = serviceApi.getBugs()
 
 }
