@@ -63,7 +63,19 @@ fun BugsView(
             ) { Text("BottomAppBar") }
         }
     ) {
+        when{
 
+            // Once our request has finished uploading and the data we have requested are not empty
+            !state.isLoading && state.data.isNotEmpty() -> {}
+
+            // Once our request has finished loading and the data we have requested
+            // does not contain data due to some kind of error.
+            !state.isLoading && state.data.isEmpty() -> {}
+
+            // When our petition is in process and is still uploading
+            state.isLoading -> {}
+
+        }
     }
 
 }
