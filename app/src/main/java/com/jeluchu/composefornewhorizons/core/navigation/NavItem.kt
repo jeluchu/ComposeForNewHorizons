@@ -22,9 +22,13 @@ sealed class NavItem(
         navArgument(it.key) { type = it.navType }
     }
 
-    object Bugs: NavItem("bugs")
-    object BugDetails: NavItem("bugDetails", listOf(NavArgs.BugId)) {
+    object Bugs : NavItem("bugs")
+    object BugDetails : NavItem("bugDetails", listOf(NavArgs.BugId)) {
         fun createNavRoute(bugId: String) = "$baseRoute/$bugId"
+    }
+
+    object BugWeb : NavItem("bugWeb", listOf(NavArgs.BugId, NavArgs.BugName)) {
+        fun createNavRoute(bugId: String, bugName: String) = "$baseRoute/$bugId/$bugName"
     }
 
 }
@@ -36,5 +40,6 @@ enum class NavArgs(
     val key: String,
     val navType: NavType<*>
 ) {
-    BugId(key = "bugId", navType = NavType.StringType)
+    BugId(key = "bugId", navType = NavType.StringType),
+    BugName(key = "bugName", navType = NavType.StringType)
 }
