@@ -41,12 +41,7 @@ fun Navigation(
         composable(
             route = NavItem.BugDetails.route,
             arguments = NavItem.BugDetails.args
-        ) { navBackStackEntry ->
-            BugDetailsView(
-                navigate = navigate,
-                bugId = navBackStackEntry.arguments?.getString(NavArgs.BugId.key) ?: String.empty()
-            )
-        }
+        ) { BugDetailsView(navigate = navigate) }
 
         composable(
             route = NavItem.BugWeb.route,
