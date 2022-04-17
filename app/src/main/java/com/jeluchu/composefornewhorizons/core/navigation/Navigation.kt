@@ -9,6 +9,7 @@ import com.google.accompanist.navigation.animation.composable
 import com.google.accompanist.navigation.animation.rememberAnimatedNavController
 import com.jeluchu.composefornewhorizons.features.bugdetails.view.BugDetailsView
 import com.jeluchu.composefornewhorizons.features.bugs.view.BugsView
+import com.jeluchu.composefornewhorizons.features.bugweb.view.BugWebView
 import com.jeluchu.jchucomponentscompose.core.extensions.strings.empty
 
 @OptIn(ExperimentalAnimationApi::class)
@@ -39,11 +40,23 @@ fun Navigation(
 
         composable(
             route = NavItem.BugDetails.route,
-            arguments = NavItem.Bugs.args
+            arguments = NavItem.BugDetails.args
         ) { navBackStackEntry ->
             BugDetailsView(
                 navigate = navigate,
                 bugId = navBackStackEntry.arguments?.getString(NavArgs.BugId.key) ?: String.empty()
+            )
+        }
+
+        composable(
+            route = NavItem.BugWeb.route,
+            arguments = NavItem.BugWeb.args
+        ) { navBackStackEntry ->
+            BugWebView(
+                navigate = navigate,
+                bugId = navBackStackEntry.arguments?.getString(NavArgs.BugId.key) ?: String.empty(),
+                bugName = navBackStackEntry.arguments?.getString(NavArgs.BugName.key)
+                    ?: String.empty()
             )
         }
 

@@ -11,5 +11,8 @@ class Navigate(navController: NavHostController) {
     val bugDetails: (String) -> Unit = { id ->
         navController.navigate(NavItem.BugDetails.createNavRoute(id))
     }
+    val bugWeb: (String, String) -> Unit = { id, name ->
+        navController.navigate(NavItem.BugWeb.createNavRoute(id, name))
+    }
 
 }

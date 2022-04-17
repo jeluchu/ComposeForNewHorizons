@@ -30,7 +30,8 @@ class BugsViewModel @Inject constructor(
                 when (it) {
                     is Resource.Success -> _uiState.value = BugsState(data = it.data.orEmpty())
                     is Resource.Loading -> _uiState.value = BugsState(isLoading = true)
-                    is Resource.Error -> _uiState.value = BugsState(error = it.error.handleFailure())
+                    is Resource.Error -> _uiState.value =
+                        BugsState(error = it.error.handleFailure())
                 }
             }.launchIn(viewModelScope)
     }
