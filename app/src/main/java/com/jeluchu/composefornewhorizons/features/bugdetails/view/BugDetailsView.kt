@@ -4,6 +4,8 @@ import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
@@ -21,22 +23,18 @@ import com.jeluchu.composefornewhorizons.core.navigation.Navigate
 import com.jeluchu.composefornewhorizons.core.ui.theme.artichoke
 import com.jeluchu.composefornewhorizons.core.ui.theme.cream
 import com.jeluchu.composefornewhorizons.core.ui.theme.textColor
-import com.jeluchu.composefornewhorizons.features.bugs.models.BugsItem
-import com.jeluchu.composefornewhorizons.features.bugs.viewmodel.BugsViewModel
+import com.jeluchu.composefornewhorizons.features.bugdetails.viewmodel.BugDetailViewModel
 import com.jeluchu.jchucomponentscompose.ui.modifier.cornerRadius
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun BugDetailsView(
     navigate: Navigate,
-    vm: BugsViewModel = hiltViewModel(),
-    bugId: String
+    vm: BugDetailViewModel = hiltViewModel()
 ) {
 
     val state by vm.state.collectAsState()
-    val details = if (state.data.isNotEmpty())
-        state.data.first { it.fileName == bugId }
-    else BugsItem.empty()
+    val details = state.data
 
     val systemUiController = rememberSystemUiController()
     val useDarkIcons = MaterialTheme.colors.isLight
@@ -92,8 +90,8 @@ fun BugDetailsView(
             Text(
                 modifier = Modifier
                     .padding(bottom = 10.dp)
-                    .clickable { navigate.bugWeb(bugId, details.name.nameEUen) },
-                text = "Id of Bug is: $bugId"
+                    .clickable { navigate.bugWeb(details.fileName, details.name.nameEUen) },
+                text = "Id of Bug is: ${details.fileName}"
             )
 
             Text(
@@ -164,6 +162,21 @@ fun BugDetailsView(
                     }
                 ) { Text(text = "Find many features on the iNook app") }
 
+            }
+
+            LazyRow {
+                items(details.availability.timeArray.orEmpty()) { item ->
+                    Text(
+                        text = "Available at: $item",
+                        modifier = Modifier
+                            .padding(10.dp)
+                            .clip(13.cornerRadius())
+                            .background(artichoke.copy(.2f))
+                            .padding(5.dp),
+                        textAlign = TextAlign.Center,
+                        color = textColor
+                    )
+                }
             }
 
         }
