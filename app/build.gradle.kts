@@ -44,8 +44,8 @@ dependencies {
     // KOTLIN LIBRARY ------------------------------------------------------------------------------
     implementation(kotlin("stdlib-jdk8"))
     implementation(kotlin("reflect"))
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.0")
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.0")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.1")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.1")
 
     // JELUCHU CORE --------------------------------------------------------------------------------
     implementation("com.github.Jeluchu:jchucomponents-compose:0.7.6")
@@ -72,6 +72,7 @@ dependencies {
 
     // GOOGLE LIBRARY ------------------------------------------------------------------------------
     implementation("com.google.accompanist:accompanist-systemuicontroller:0.23.1")
+    implementation("com.google.accompanist:accompanist-navigation-animation:0.23.1")
 
     // HILT ----------------------------------------------------------------------------------------
     implementation("com.google.dagger:hilt-android:2.41")
