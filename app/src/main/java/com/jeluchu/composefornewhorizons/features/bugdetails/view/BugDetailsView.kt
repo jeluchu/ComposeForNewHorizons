@@ -4,6 +4,7 @@ import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
@@ -19,6 +20,7 @@ import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import com.jeluchu.composefornewhorizons.core.navigation.Navigate
 import com.jeluchu.composefornewhorizons.core.ui.theme.artichoke
 import com.jeluchu.composefornewhorizons.core.ui.theme.cream
+import com.jeluchu.composefornewhorizons.core.ui.theme.textColor
 import com.jeluchu.composefornewhorizons.features.bugs.models.BugsItem
 import com.jeluchu.composefornewhorizons.features.bugs.viewmodel.BugsViewModel
 import com.jeluchu.jchucomponentscompose.ui.modifier.cornerRadius
@@ -79,7 +81,7 @@ fun BugDetailsView(
                 elevation = 0.dp
             )
         },
-        backgroundColor = cream
+        backgroundColor = cream,
     ) {
         Column(
             modifier = Modifier.fillMaxSize(),
@@ -88,7 +90,9 @@ fun BugDetailsView(
         ) {
 
             Text(
-                modifier = Modifier.clickable { navigate.bugWeb(bugId, details.name.nameEUen) },
+                modifier = Modifier
+                    .padding(bottom = 10.dp)
+                    .clickable { navigate.bugWeb(bugId, details.name.nameEUen) },
                 text = "Id of Bug is: $bugId"
             )
 
@@ -106,18 +110,60 @@ fun BugDetailsView(
                     .background(artichoke.copy(.2f))
                     .padding(5.dp),
                 textAlign = TextAlign.Center,
-                color = artichoke
+                color = textColor
             )
 
             if (snackbarVisibleState) {
+
+                // Simple Snackbar
                 Snackbar(
-                    action = {
-                        Button(onClick = { setSnackBarState(!snackbarVisibleState) }) {
-                            Text("Go to Work!")
-                        }
-                    },
-                    modifier = Modifier.padding(8.dp)
+                    modifier = Modifier.padding(10.dp),
+                    shape = RoundedCornerShape(16.dp),
+                    elevation = 0.dp,
+                    contentColor = Color.DarkGray,
+                    backgroundColor = artichoke.copy(.2f)
                 ) { Text(text = "The world is a Vampire!") }
+
+                // Snackbar with action item
+                Snackbar(
+                    modifier = Modifier.padding(10.dp),
+                    shape = RoundedCornerShape(16.dp),
+                    elevation = 0.dp,
+                    contentColor = Color.DarkGray,
+                    backgroundColor = artichoke.copy(.2f),
+                    action = {
+                        TextButton(
+                            onClick = { setSnackBarState(!snackbarVisibleState) }
+                        ) {
+                            Text(
+                                text = "New Horizons",
+                                color = textColor
+                            )
+                        }
+                    }
+                ) { Text(text = "Animal Crossing is the best game") }
+
+                // Snackbar with action item below text
+                Snackbar(
+                    modifier = Modifier.padding(10.dp),
+                    shape = RoundedCornerShape(16.dp),
+                    elevation = 0.dp,
+                    contentColor = Color.DarkGray,
+                    backgroundColor = artichoke.copy(.2f),
+                    actionOnNewLine = true,
+                    action = {
+                        TextButton(
+                            onClick = { setSnackBarState(!snackbarVisibleState) }
+                        ) {
+                            Text(
+                                modifier = Modifier.clickable { setSnackBarState(!snackbarVisibleState) },
+                                text = "New Horizons",
+                                color = textColor
+                            )
+                        }
+                    }
+                ) { Text(text = "Find many features on the iNook app") }
+
             }
 
         }
