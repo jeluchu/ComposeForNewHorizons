@@ -9,3 +9,4 @@ val Teal200 = Color(0xFF03DAC5)
 
 val artichoke = Color(0xFFA29574)
 val cream = Color(0xFFF5F0CA)
+val textColor = Color(0xFF8B7E6D)
