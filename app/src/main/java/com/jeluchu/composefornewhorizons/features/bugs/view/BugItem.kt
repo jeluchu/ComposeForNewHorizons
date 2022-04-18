@@ -5,20 +5,20 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.combinedClickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.*
+import androidx.compose.material.DropdownMenu
+import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.vector.ImageVector
-import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.jeluchu.composefornewhorizons.R
+import com.jeluchu.composefornewhorizons.core.ui.composables.CustomDropdownMenuItem
 import com.jeluchu.composefornewhorizons.core.ui.theme.artichoke
-import com.jeluchu.composefornewhorizons.core.ui.theme.cream
 import com.jeluchu.composefornewhorizons.features.bugs.models.BugsItem
 import com.jeluchu.jchucomponentscompose.ui.images.NetworkImage
 import com.jeluchu.jchucomponentscompose.ui.modifier.cornerRadius
@@ -87,53 +87,28 @@ fun BugItem(
                 // DropdownMenuItem for each option we want to include,
                 // inside the item design we can include either only text options,
                 // or also for example options with icon and text
-                DropdownMenuItem(
-                    onClick = { isDropdownMenuExpanded.value = false }) {
-                    Text(
-                        text = "ID: ${bug.fileName}",
-                        color = cream
-                    )
-                }
 
-                DropdownMenuItem(
-                    onClick = { isDropdownMenuExpanded.value = false }) {
-                    Text(
-                        text = "Wild World",
-                        color = cream
-                    )
-                }
+                CustomDropdownMenuItem(
+                    title = "ID: ${bug.fileName}"
+                ) { isDropdownMenuExpanded.value = false }
 
-                DropdownMenuItem(
-                    onClick = { isDropdownMenuExpanded.value = false }) {
-                    Text(
-                        text = "City Folk",
-                        color = cream
-                    )
-                }
+                CustomDropdownMenuItem(
+                    title = "Wild World"
+                ) { isDropdownMenuExpanded.value = false }
 
-                DropdownMenuItem(
-                    onClick = { isDropdownMenuExpanded.value = false }) {
-                    Text(
-                        text = "New Leaf",
-                        color = cream
-                    )
-                }
+                CustomDropdownMenuItem(
+                    title = "City Folk"
+                ) { isDropdownMenuExpanded.value = false }
 
-                DropdownMenuItem(
-                    onClick = { isDropdownMenuExpanded.value = false }) {
-                    Icon(
-                        modifier = Modifier
-                            .size(30.dp)
-                            .padding(end = 10.dp),
-                        imageVector = ImageVector.vectorResource(id = R.drawable.ic_deco_leaf),
-                        tint = cream,
-                        contentDescription = "Leaf"
-                    )
-                    Text(
-                        text = "New Horizons",
-                        color = cream
-                    )
-                }
+                CustomDropdownMenuItem(
+                    title = "New Leaf"
+                ) { isDropdownMenuExpanded.value = false }
+
+                CustomDropdownMenuItem(
+                    title = "New Horizons",
+                    showIcon = true,
+                    icon = R.drawable.ic_deco_leaf
+                ) { isDropdownMenuExpanded.value = false }
 
             }
 
