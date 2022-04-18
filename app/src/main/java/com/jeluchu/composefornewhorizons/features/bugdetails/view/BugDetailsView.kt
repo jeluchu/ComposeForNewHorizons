@@ -20,6 +20,7 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import com.jeluchu.composefornewhorizons.core.navigation.Navigate
+import com.jeluchu.composefornewhorizons.core.ui.composables.CustomText
 import com.jeluchu.composefornewhorizons.core.ui.theme.artichoke
 import com.jeluchu.composefornewhorizons.core.ui.theme.cream
 import com.jeluchu.composefornewhorizons.core.ui.theme.textColor

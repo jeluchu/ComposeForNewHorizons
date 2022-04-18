@@ -9,6 +9,7 @@ import com.google.accompanist.navigation.animation.composable
 import com.google.accompanist.navigation.animation.rememberAnimatedNavController
 import com.jeluchu.composefornewhorizons.features.bugdetails.view.BugDetailsView
 import com.jeluchu.composefornewhorizons.features.bugs.view.BugsView
+import com.jeluchu.composefornewhorizons.features.bugtabs.view.BugTabs
 import com.jeluchu.composefornewhorizons.features.bugweb.view.BugWebView
 import com.jeluchu.jchucomponentscompose.core.extensions.strings.empty
 
@@ -54,6 +55,10 @@ fun Navigation(
                     ?: String.empty()
             )
         }
+
+        composable(
+            route = NavItem.BugTabs.route
+        ) { BugTabs(navigate = navigate) }
 
     }
 
