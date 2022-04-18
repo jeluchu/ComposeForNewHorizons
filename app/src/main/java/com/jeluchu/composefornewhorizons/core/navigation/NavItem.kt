@@ -22,14 +22,14 @@ sealed class NavItem(
         navArgument(it.key) { type = it.navType }
     }
 
-    object Bugs : NavItem("bugs")
+    object Bugs: NavItem("bugs")
     object BugDetails : NavItem("bugDetails", listOf(NavArgs.BugId)) {
         fun createNavRoute(bugId: String) = "$baseRoute/$bugId"
     }
-
-    object BugWeb : NavItem("bugWeb", listOf(NavArgs.BugId, NavArgs.BugName)) {
+    object BugWeb: NavItem("bugWeb", listOf(NavArgs.BugId, NavArgs.BugName)) {
         fun createNavRoute(bugId: String, bugName: String) = "$baseRoute/$bugId/$bugName"
     }
+    object BugTabs: NavItem("bugTabs")
 
 }
 

@@ -73,7 +73,9 @@ dependencies {
     // GOOGLE LIBRARY ------------------------------------------------------------------------------
     implementation("com.google.accompanist:accompanist-systemuicontroller:0.23.1")
     implementation("com.google.accompanist:accompanist-navigation-animation:0.23.1")
-
+    implementation("com.google.accompanist:accompanist-pager:0.23.1")
+    implementation("com.google.accompanist:accompanist-pager-indicators:0.23.1")
+    
     // HILT ----------------------------------------------------------------------------------------
     implementation("com.google.dagger:hilt-android:2.41")
     kapt("com.google.dagger:hilt-android-compiler:2.41")

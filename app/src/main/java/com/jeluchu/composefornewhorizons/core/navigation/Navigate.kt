@@ -15,4 +15,6 @@ class Navigate(navController: NavHostController) {
         navController.navigate(NavItem.BugWeb.createNavRoute(id, name))
     }
 
+    val bugTabs: () -> Unit = { navController.navigate(NavItem.BugTabs.route) }
+
 }
