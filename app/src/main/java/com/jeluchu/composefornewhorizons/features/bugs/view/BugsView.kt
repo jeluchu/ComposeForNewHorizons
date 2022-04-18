@@ -2,20 +2,15 @@ package com.jeluchu.composefornewhorizons.features.bugs.view
 
 import androidx.compose.animation.*
 import androidx.compose.foundation.ExperimentalFoundationApi
-import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.GridCells
 import androidx.compose.foundation.lazy.LazyVerticalGrid
 import androidx.compose.foundation.lazy.items
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
 import androidx.compose.ui.platform.LocalDensity
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
@@ -23,8 +18,6 @@ import com.jeluchu.composefornewhorizons.core.navigation.Navigate
 import com.jeluchu.composefornewhorizons.core.ui.theme.artichoke
 import com.jeluchu.composefornewhorizons.core.ui.theme.cream
 import com.jeluchu.composefornewhorizons.features.bugs.viewmodel.BugsViewModel
-import com.jeluchu.jchucomponentscompose.ui.images.NetworkImage
-import com.jeluchu.jchucomponentscompose.ui.modifier.cornerRadius
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
@@ -145,43 +138,13 @@ fun BugsView(
                 ) {
                     items(state.data) { item ->
 
-                        Column(
-                            modifier = Modifier
-                                .height(150.dp)
-                                .padding(
-                                    horizontal = 10.dp,
-                                    vertical = 5.dp
-                                )
-                                .clip(RoundedCornerShape(16.dp))
-                                .clickable { navigate.bugDetails(item.fileName) }
-                                .background(artichoke.copy(.15f)),
-                            verticalArrangement = Arrangement.Center,
-                            horizontalAlignment = Alignment.CenterHorizontally
-                        ) {
-
-                            // NetworkImage is a custom component I have made that extends
-                            // the Composable made in the Coil library
-                            // (https://coil-kt.github.io/coil/compose/)
-                            // compatible with Compose, and 100% in Kotlin with
-                            // Coroutines compatibility
-                            NetworkImage(
-                                modifier = Modifier
-                                    .size(80.dp)
-                                    .clip(16.cornerRadius())
-                                    .background(artichoke.copy(.3f)),
-                                url = item.imageUri
-                            )
-
-                            Text(
-                                modifier = Modifier.padding(top = 10.dp),
-                                text = item.name.nameEUen,
-                                textAlign = TextAlign.Center,
-                                maxLines = 1
-                            )
-
-                        }
+                        BugItem(
+                            bug = item,
+                            onItemClick = { navigate.bugDetails(item.fileName) }
+                        )
 
                     }
+
                 }
 
             }
@@ -194,6 +157,7 @@ fun BugsView(
             state.isLoading -> {}
 
         }
+
     }
 
 }
