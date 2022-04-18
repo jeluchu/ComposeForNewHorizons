@@ -1,9 +1,13 @@
 package com.jeluchu.composefornewhorizons.features.bugdetails.view
 
+import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -95,89 +99,116 @@ fun BugDetailsView(
                 text = "Id of Bug is: ${details.fileName}"
             )
 
-            Text(
-                text = "Show Snackbar",
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(
-                        start = 10.dp,
-                        end = 10.dp,
-                        bottom = 10.dp
-                    )
-                    .clip(13.cornerRadius())
-                    .clickable { setSnackBarState(!snackbarVisibleState) }
-                    .background(artichoke.copy(.2f))
-                    .padding(5.dp),
-                textAlign = TextAlign.Center,
-                color = textColor
+            CustomText(
+                modifier = Modifier.padding(
+                    start = 10.dp,
+                    end = 10.dp,
+                    bottom = 10.dp
+                ),
+                title = "Show Tabs",
+                onClick = navigate.bugTabs
             )
 
-            if (snackbarVisibleState) {
+            CustomText(
+                modifier = Modifier.padding(
+                    start = 10.dp,
+                    end = 10.dp,
+                    bottom = 10.dp
+                ),
+                title = "Show Snackbar",
+                onClick = { setSnackBarState(!snackbarVisibleState) }
+            )
 
-                // Simple Snackbar
-                Snackbar(
-                    modifier = Modifier.padding(10.dp),
-                    shape = RoundedCornerShape(16.dp),
-                    elevation = 0.dp,
-                    contentColor = Color.DarkGray,
-                    backgroundColor = artichoke.copy(.2f)
-                ) { Text(text = "The world is a Vampire!") }
+            AnimatedVisibility(visible = snackbarVisibleState) {
+                Column {
 
-                // Snackbar with action item
-                Snackbar(
-                    modifier = Modifier.padding(10.dp),
-                    shape = RoundedCornerShape(16.dp),
-                    elevation = 0.dp,
-                    contentColor = Color.DarkGray,
-                    backgroundColor = artichoke.copy(.2f),
-                    action = {
-                        TextButton(
-                            onClick = { setSnackBarState(!snackbarVisibleState) }
-                        ) {
-                            Text(
-                                text = "New Horizons",
-                                color = textColor
-                            )
+                    // Simple Snackbar
+                    Snackbar(
+                        modifier = Modifier.padding(10.dp),
+                        shape = RoundedCornerShape(16.dp),
+                        elevation = 0.dp,
+                        contentColor = Color.DarkGray,
+                        backgroundColor = artichoke.copy(.2f)
+                    ) { Text(text = "The world is a Vampire!") }
+
+                    // Snackbar with action item
+                    Snackbar(
+                        modifier = Modifier.padding(10.dp),
+                        shape = RoundedCornerShape(16.dp),
+                        elevation = 0.dp,
+                        contentColor = Color.DarkGray,
+                        backgroundColor = artichoke.copy(.2f),
+                        action = {
+                            TextButton(
+                                onClick = { setSnackBarState(!snackbarVisibleState) }
+                            ) {
+                                Text(
+                                    text = "New Horizons",
+                                    color = textColor
+                                )
+                            }
                         }
-                    }
-                ) { Text(text = "Animal Crossing is the best game") }
+                    ) { Text(text = "Animal Crossing is the best game") }
 
-                // Snackbar with action item below text
-                Snackbar(
-                    modifier = Modifier.padding(10.dp),
-                    shape = RoundedCornerShape(16.dp),
-                    elevation = 0.dp,
-                    contentColor = Color.DarkGray,
-                    backgroundColor = artichoke.copy(.2f),
-                    actionOnNewLine = true,
-                    action = {
-                        TextButton(
-                            onClick = { setSnackBarState(!snackbarVisibleState) }
-                        ) {
-                            Text(
-                                modifier = Modifier.clickable { setSnackBarState(!snackbarVisibleState) },
-                                text = "New Horizons",
-                                color = textColor
-                            )
+                    // Snackbar with action item below text
+                    Snackbar(
+                        modifier = Modifier.padding(10.dp),
+                        shape = RoundedCornerShape(16.dp),
+                        elevation = 0.dp,
+                        contentColor = Color.DarkGray,
+                        backgroundColor = artichoke.copy(.2f),
+                        actionOnNewLine = true,
+                        action = {
+                            TextButton(
+                                onClick = { setSnackBarState(!snackbarVisibleState) }
+                            ) {
+                                Text(
+                                    modifier = Modifier.clickable { setSnackBarState(!snackbarVisibleState) },
+                                    text = "New Horizons",
+                                    color = textColor
+                                )
+                            }
                         }
-                    }
-                ) { Text(text = "Find many features on the iNook app") }
+                    ) { Text(text = "Find many features on the iNook app") }
 
+                }
             }
 
-            LazyRow {
-                items(details.availability.timeArray.orEmpty()) { item ->
-                    Text(
-                        text = "Available at: $item",
-                        modifier = Modifier
-                            .padding(10.dp)
-                            .clip(13.cornerRadius())
-                            .background(artichoke.copy(.2f))
-                            .padding(5.dp),
-                        textAlign = TextAlign.Center,
-                        color = textColor
+            LazyRow(verticalAlignment = Alignment.CenterVertically) {
+
+                item{
+                    CustomText(
+                        modifier = Modifier.padding(start = 10.dp),
+                        title = "Show Tabs",
+                        onClick = navigate.bugTabs
                     )
                 }
+
+                items(details.availability.timeArray.orEmpty()) { item ->
+
+                    if (item == 4)
+                        Text(
+                            text = "Available at: $item",
+                            modifier = Modifier
+                                .padding(10.dp)
+                                .padding(5.dp),
+                            textAlign = TextAlign.Center,
+                            color = textColor
+                        )
+                    else
+                        Text(
+                            text = "Available at: $item",
+                            modifier = Modifier
+                                .padding(10.dp)
+                                .clip(13.cornerRadius())
+                                .background(artichoke.copy(.2f))
+                                .padding(8.dp),
+                            textAlign = TextAlign.Center,
+                            color = textColor
+                        )
+
+                }
+
             }
 
         }
