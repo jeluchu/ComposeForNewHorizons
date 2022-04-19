@@ -17,4 +17,6 @@ class Navigate(navController: NavHostController) {
 
     val bugTabs: () -> Unit = { navController.navigate(NavItem.BugTabs.route) }
 
+    val villagers: () -> Unit = { navController.navigate(NavItem.Villagers.route) }
+
 }
