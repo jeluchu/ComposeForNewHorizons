@@ -4,7 +4,6 @@ import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.navigation.NavHostController
-import androidx.navigation.compose.NavHost
 import com.google.accompanist.navigation.animation.AnimatedNavHost
 import com.google.accompanist.navigation.animation.composable
 import com.google.accompanist.navigation.animation.rememberAnimatedNavController
@@ -25,14 +24,14 @@ fun Navigation(
     // NavHost is the default and non-animated way to create a navigation
     // network with Compose, if we want to include animations
     // we have AnimatedNavHost
-    NavHost(
-        navController = navController,
-        startDestination = NavItem.Bugs.baseRoute
-    ) {
+    //NavHost(
+    //    navController = navController,
+    //    startDestination = NavItem.Bugs.baseRoute
+    //) {
 
         // Navigable composable screens
 
-    }
+    //}
 
     // With the compose navigation library we will have NavHost,
     // but if we include Accompanist's animated navigation, we can have transition
