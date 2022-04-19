@@ -119,6 +119,16 @@ fun BugDetailsView(
                 onClick = { setSnackBarState(!snackbarVisibleState) }
             )
 
+            CustomText(
+                modifier = Modifier.padding(
+                    start = 10.dp,
+                    end = 10.dp,
+                    bottom = 10.dp
+                ),
+                title = "Show BackdropScaffold",
+                onClick = navigate.villagers
+            )
+
             AnimatedVisibility(visible = snackbarVisibleState) {
                 Column {
 

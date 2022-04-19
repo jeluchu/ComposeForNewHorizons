@@ -19,16 +19,16 @@ import androidx.compose.ui.unit.dp
 import com.jeluchu.composefornewhorizons.R
 import com.jeluchu.composefornewhorizons.core.ui.composables.CustomDropdownMenuItem
 import com.jeluchu.composefornewhorizons.core.ui.theme.artichoke
-import com.jeluchu.composefornewhorizons.features.bugs.models.BugsItem
 import com.jeluchu.jchucomponentscompose.ui.images.NetworkImage
 import com.jeluchu.jchucomponentscompose.ui.modifier.cornerRadius
 
-
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun BugItem(
-    bug: BugsItem,
-    onItemClick: () -> Unit
+fun CustomItem(
+    id: String,
+    name: String,
+    image: String,
+    onItemClick: () -> Unit = {}
 ) {
 
     val isDropdownMenuExpanded = remember { mutableStateOf(false) }
@@ -60,12 +60,12 @@ fun BugItem(
                 .size(80.dp)
                 .clip(16.cornerRadius())
                 .background(artichoke.copy(.3f)),
-            url = bug.imageUri
+            url = image
         )
 
         Text(
             modifier = Modifier.padding(top = 10.dp),
-            text = bug.name.nameEUen,
+            text = name,
             textAlign = TextAlign.Center,
             maxLines = 1
         )
@@ -89,7 +89,7 @@ fun BugItem(
                 // or also for example options with icon and text
 
                 CustomDropdownMenuItem(
-                    title = "ID: ${bug.fileName}"
+                    title = "ID: $id"
                 ) { isDropdownMenuExpanded.value = false }
 
                 CustomDropdownMenuItem(

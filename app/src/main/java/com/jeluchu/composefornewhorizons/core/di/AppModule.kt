@@ -5,6 +5,7 @@ import com.jeluchu.composefornewhorizons.ComposeForNewHorizons
 import com.jeluchu.composefornewhorizons.core.network.Environments
 import com.jeluchu.composefornewhorizons.features.bugdetails.repository.BugDetailRepository
 import com.jeluchu.composefornewhorizons.features.bugs.repository.BugsRepository
+import com.jeluchu.composefornewhorizons.features.villagers.repository.VillagersRepository
 import com.jeluchu.jchucomponentscompose.utils.network.RetrofitClient
 import com.jeluchu.jchucomponentscompose.utils.network.interceptors.Interceptor
 import com.jeluchu.jchucomponentscompose.utils.network.interceptors.InterceptorHeaders
@@ -52,5 +53,10 @@ object AppModule {
     fun provideBugDetailsRepository(
         dataSource: BugDetailRepository.BugDetailRepositoryImpl
     ): BugDetailRepository = dataSource
+
+    @Provides
+    fun provideVillagersDetailsRepository(
+        dataSource: VillagersRepository.VillagersRepositoryImpl
+    ): VillagersRepository = dataSource
 
 }

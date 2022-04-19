@@ -30,6 +30,7 @@ sealed class NavItem(
         fun createNavRoute(bugId: String, bugName: String) = "$baseRoute/$bugId/$bugName"
     }
     object BugTabs: NavItem("bugTabs")
+    object Villagers: NavItem("villagers")
 
 }
 

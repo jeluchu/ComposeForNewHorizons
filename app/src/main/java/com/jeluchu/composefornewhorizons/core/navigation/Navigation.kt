@@ -11,6 +11,7 @@ import com.jeluchu.composefornewhorizons.features.bugdetails.view.BugDetailsView
 import com.jeluchu.composefornewhorizons.features.bugs.view.BugsView
 import com.jeluchu.composefornewhorizons.features.bugtabs.view.BugTabs
 import com.jeluchu.composefornewhorizons.features.bugweb.view.BugWebView
+import com.jeluchu.composefornewhorizons.features.villagers.view.VillagersView
 import com.jeluchu.jchucomponentscompose.core.extensions.strings.empty
 
 @OptIn(ExperimentalAnimationApi::class)
@@ -71,6 +72,10 @@ fun Navigation(
         composable(
             route = NavItem.BugTabs.route
         ) { BugTabs(navigate = navigate) }
+
+        composable(
+            route = NavItem.Villagers.route
+        ) { VillagersView(navigate = navigate) }
 
     }
 

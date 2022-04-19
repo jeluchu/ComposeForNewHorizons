@@ -138,8 +138,10 @@ fun BugsView(
                 ) {
                     items(state.data) { item ->
 
-                        BugItem(
-                            bug = item,
+                        CustomItem(
+                            id = item.fileName,
+                            name = item.name.nameEUen,
+                            image = item.imageUri,
                             onItemClick = { navigate.bugDetails(item.fileName) }
                         )
 
@@ -157,7 +159,6 @@ fun BugsView(
             state.isLoading -> {}
 
         }
-
     }
 
 }
