@@ -14,7 +14,11 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.tooling.preview.Device
+import androidx.compose.ui.tooling.preview.Devices
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.jeluchu.composefornewhorizons.R
 import com.jeluchu.composefornewhorizons.core.ui.composables.CustomDropdownMenuItem
@@ -116,4 +120,22 @@ fun CustomItem(
 
     }
 
+}
+
+// Here you can see the preview of a specific composable
+// and adjust the necessary settings we want for our preview
+@Preview(
+    name = "A bug preview",
+    showBackground = true,
+    backgroundColor = 0xFFFEE0,
+    device = Devices.PIXEL_XL,
+    showSystemUi = true
+)
+@Composable
+fun CustomItemPreview() {
+    CustomItem(
+        id = "bug",
+        name = "The bug is a vampire!",
+        image = "https://acnhapi.com/v1/icons/bugs/1"
+    )
 }
