@@ -20,13 +20,12 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import com.jeluchu.composefornewhorizons.core.navigation.Navigate
 import com.jeluchu.composefornewhorizons.core.ui.composables.CustomText
-import com.jeluchu.composefornewhorizons.core.ui.theme.artichoke
-import com.jeluchu.composefornewhorizons.core.ui.theme.cream
-import com.jeluchu.composefornewhorizons.core.ui.theme.textColor
+import com.jeluchu.composefornewhorizons.core.ui.theme.*
 import com.jeluchu.composefornewhorizons.features.bugdetails.viewmodel.BugDetailViewModel
 import com.jeluchu.jchucomponentscompose.ui.modifier.cornerRadius
 import kotlinx.coroutines.launch
@@ -106,10 +105,10 @@ fun BugDetailsView(
                             .weight(4f)
                             .padding(
                                 top = 10.dp,
-                            start = 10.dp,
-                            end = 10.dp,
-                            bottom = 20.dp
-                        ),
+                                start = 10.dp,
+                                end = 10.dp,
+                                bottom = 20.dp
+                            ),
                         title = if (bottomSheetState.isExpanded) "Hide BottomSheetScaffold"
                         else "Show BottomSheetScaffold",
                         bgColor = cream,
@@ -293,7 +292,7 @@ fun BugDetailsView(
 
                 LazyRow(verticalAlignment = Alignment.CenterVertically) {
 
-                    item{
+                    item {
                         CustomText(
                             modifier = Modifier.padding(start = 10.dp),
                             title = "Show Tabs",
@@ -325,6 +324,46 @@ fun BugDetailsView(
                             )
 
                     }
+
+                }
+
+                ConstraintLayout(
+                    modifier = Modifier
+                        .size(200.dp)
+                        .padding(top = 10.dp)
+                ) {
+
+                    val (firstBox, secondBox, thirdBox, text) = createRefs()
+
+                    Box(modifier = Modifier
+                        .size(50.dp)
+                        .background(greenColor)
+                        .constrainAs(firstBox) {})
+
+                    Box(modifier = Modifier
+                        .size(50.dp)
+                        .background(greyColor)
+                        .constrainAs(secondBox) {
+                            top.linkTo(firstBox.bottom)
+                            start.linkTo(firstBox.end)
+                        })
+
+                    Box(modifier = Modifier
+                        .size(50.dp)
+                        .background(blueColor)
+                        .constrainAs(thirdBox) {
+                            bottom.linkTo(secondBox.bottom)
+                            start.linkTo(secondBox.end, 20.dp)
+                        })
+
+                    Text(
+                        text = "The World is a Vampire!",
+                        modifier = Modifier.constrainAs(text) {
+                            top.linkTo(parent.top)
+                            start.linkTo(thirdBox.start)
+                        },
+                        color = textColor
+                    )
 
                 }
 
