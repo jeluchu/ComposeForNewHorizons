@@ -69,6 +69,7 @@ dependencies {
     implementation("androidx.compose.runtime:runtime:1.1.1")
     implementation("androidx.constraintlayout:constraintlayout-compose:1.0.0")
     implementation("androidx.navigation:navigation-compose:2.4.2")
+    implementation("androidx.core:core-splashscreen:1.0.0-beta02")
 
     // GOOGLE LIBRARY ------------------------------------------------------------------------------
     implementation("com.google.accompanist:accompanist-systemuicontroller:0.23.1")
