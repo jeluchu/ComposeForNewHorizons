@@ -6,9 +6,9 @@ import androidx.lifecycle.viewModelScope
 import com.jeluchu.composefornewhorizons.core.navigation.NavArgs
 import com.jeluchu.composefornewhorizons.features.bugdetails.repository.BugDetailRepository
 import com.jeluchu.composefornewhorizons.features.bugs.models.BugsItem
-import com.jeluchu.jchucomponentscompose.core.extensions.exception.handleFailure
-import com.jeluchu.jchucomponentscompose.core.extensions.strings.empty
-import com.jeluchu.jchucomponentscompose.utils.network.models.Resource
+import com.jeluchu.jchucomponents.core.extensions.exception.handleFailure
+import com.jeluchu.jchucomponents.core.extensions.strings.empty
+import com.jeluchu.jchucomponents.utils.network.models.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.*
 import javax.inject.Inject

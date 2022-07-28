@@ -2,9 +2,9 @@ package com.jeluchu.composefornewhorizons.features.villagers.models
 
 import com.google.gson.annotations.SerializedName
 import com.jeluchu.composefornewhorizons.features.bugs.models.Name
-import com.jeluchu.jchucomponentscompose.core.extensions.ints.empty
-import com.jeluchu.jchucomponentscompose.core.extensions.ints.orEmpty
-import com.jeluchu.jchucomponentscompose.core.extensions.strings.empty
+import com.jeluchu.jchucomponents.core.extensions.ints.empty
+import com.jeluchu.jchucomponents.core.extensions.ints.orEmpty
+import com.jeluchu.jchucomponents.core.extensions.strings.empty
 
 data class VillagerItemEntity(
     @SerializedName("birthday")

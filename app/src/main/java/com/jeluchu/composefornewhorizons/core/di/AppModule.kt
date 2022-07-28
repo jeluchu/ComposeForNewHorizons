@@ -6,9 +6,9 @@ import com.jeluchu.composefornewhorizons.core.network.Environments
 import com.jeluchu.composefornewhorizons.features.bugdetails.repository.BugDetailRepository
 import com.jeluchu.composefornewhorizons.features.bugs.repository.BugsRepository
 import com.jeluchu.composefornewhorizons.features.villagers.repository.VillagersRepository
-import com.jeluchu.jchucomponentscompose.utils.network.RetrofitClient
-import com.jeluchu.jchucomponentscompose.utils.network.interceptors.Interceptor
-import com.jeluchu.jchucomponentscompose.utils.network.interceptors.InterceptorHeaders
+import com.jeluchu.jchucomponents.utils.network.RetrofitClient
+import com.jeluchu.jchucomponents.utils.network.interceptors.Interceptor
+import com.jeluchu.jchucomponents.utils.network.interceptors.InterceptorHeaders
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

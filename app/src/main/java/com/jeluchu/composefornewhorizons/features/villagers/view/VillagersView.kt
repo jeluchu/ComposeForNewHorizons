@@ -1,13 +1,12 @@
 package com.jeluchu.composefornewhorizons.features.villagers.view
 
-import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.lazy.GridCells
-import androidx.compose.foundation.lazy.LazyVerticalGrid
-import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
+import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
@@ -27,7 +26,6 @@ import com.jeluchu.composefornewhorizons.features.bugs.view.CustomItem
 import com.jeluchu.composefornewhorizons.features.villagers.viewmodel.VillagersViewModel
 
 @OptIn(
-    ExperimentalFoundationApi::class,
     ExperimentalMaterialApi::class,
     ExperimentalMaterialApi::class,
     ExperimentalMaterialApi::class
@@ -86,7 +84,7 @@ fun VillagersView(
             )
         },
         backLayerContent = {
-            Column() {
+            Column {
 
                 CustomText(
                     modifier = Modifier.padding(
@@ -124,7 +122,7 @@ fun VillagersView(
             when {
                 !state.isLoading && state.data.isNotEmpty() -> {
                     LazyVerticalGrid(
-                        cells = GridCells.Fixed(2),
+                        columns = GridCells.Fixed(2),
                         modifier = Modifier.padding(horizontal =  10.dp)
                     ) {
 

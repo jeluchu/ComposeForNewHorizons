@@ -3,7 +3,7 @@ package com.jeluchu.composefornewhorizons.core.network
 import android.content.Context
 import android.net.NetworkCapabilities
 import android.os.Build
-import com.jeluchu.jchucomponentscompose.core.extensions.context.connectivityManager
+import com.jeluchu.jchucomponents.core.extensions.context.connectivityManager
 import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Inject
 import javax.inject.Singleton

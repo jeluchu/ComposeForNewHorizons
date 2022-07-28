@@ -1,6 +1,6 @@
 package com.jeluchu.composefornewhorizons.features.villagers.models
 
-import com.jeluchu.jchucomponentscompose.core.extensions.strings.empty
+import com.jeluchu.jchucomponents.core.extensions.strings.empty
 
 data class Name(
     val nameCNzh: String,

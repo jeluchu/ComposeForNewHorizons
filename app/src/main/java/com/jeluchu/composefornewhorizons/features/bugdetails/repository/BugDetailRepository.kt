@@ -2,9 +2,9 @@ package com.jeluchu.composefornewhorizons.features.bugdetails.repository
 
 import com.jeluchu.composefornewhorizons.core.network.NetworkHandler
 import com.jeluchu.composefornewhorizons.features.bugs.models.BugsItem
-import com.jeluchu.jchucomponentscompose.core.exception.Failure
-import com.jeluchu.jchucomponentscompose.utils.network.models.Resource
-import com.jeluchu.jchucomponentscompose.utils.network.networkResource
+import com.jeluchu.jchucomponents.core.exception.Failure
+import com.jeluchu.jchucomponents.utils.network.models.Resource
+import com.jeluchu.jchucomponents.utils.network.networkResource
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 

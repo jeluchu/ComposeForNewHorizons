@@ -13,8 +13,8 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.jeluchu.composefornewhorizons.core.ui.theme.artichoke
 import com.jeluchu.composefornewhorizons.core.ui.theme.textColor
-import com.jeluchu.jchucomponentscompose.core.extensions.strings.empty
-import com.jeluchu.jchucomponentscompose.ui.modifier.cornerRadius
+import com.jeluchu.jchucomponents.core.extensions.strings.empty
+import com.jeluchu.jchucomponents.ui.modifier.cornerRadius
 
 @Composable
 fun CustomText(

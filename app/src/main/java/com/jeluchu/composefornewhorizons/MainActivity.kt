@@ -6,8 +6,8 @@ import androidx.activity.compose.setContent
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.jeluchu.composefornewhorizons.core.navigation.Navigation
 import com.jeluchu.composefornewhorizons.core.ui.theme.ComposeForNewHorizonsTheme
-import com.jeluchu.jchucomponentscompose.ui.animations.SplashAnimations
-import com.jeluchu.jchucomponentscompose.ui.animations.SplashScreenController
+import com.jeluchu.jchucomponents.ui.animations.SplashAnimations
+import com.jeluchu.jchucomponents.ui.animations.SplashScreenController
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

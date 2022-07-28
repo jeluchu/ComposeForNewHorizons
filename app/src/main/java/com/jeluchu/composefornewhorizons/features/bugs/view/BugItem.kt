@@ -23,8 +23,8 @@ import androidx.compose.ui.unit.dp
 import com.jeluchu.composefornewhorizons.R
 import com.jeluchu.composefornewhorizons.core.ui.composables.CustomDropdownMenuItem
 import com.jeluchu.composefornewhorizons.core.ui.theme.artichoke
-import com.jeluchu.jchucomponentscompose.ui.images.NetworkImage
-import com.jeluchu.jchucomponentscompose.ui.modifier.cornerRadius
+import com.jeluchu.jchucomponents.ui.images.NetworkImage
+import com.jeluchu.jchucomponents.ui.modifier.cornerRadius
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable

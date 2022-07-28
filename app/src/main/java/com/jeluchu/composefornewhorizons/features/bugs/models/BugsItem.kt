@@ -1,7 +1,7 @@
 package com.jeluchu.composefornewhorizons.features.bugs.models
 
-import com.jeluchu.jchucomponentscompose.core.extensions.ints.empty
-import com.jeluchu.jchucomponentscompose.core.extensions.strings.empty
+import com.jeluchu.jchucomponents.core.extensions.ints.empty
+import com.jeluchu.jchucomponents.core.extensions.strings.empty
 
 data class BugsItem(
     val altCatchPhrase: List<String>,

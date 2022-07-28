@@ -12,7 +12,7 @@ import com.jeluchu.composefornewhorizons.features.bugs.view.BugsView
 import com.jeluchu.composefornewhorizons.features.bugtabs.view.BugTabs
 import com.jeluchu.composefornewhorizons.features.bugweb.view.BugWebView
 import com.jeluchu.composefornewhorizons.features.villagers.view.VillagersView
-import com.jeluchu.jchucomponentscompose.core.extensions.strings.empty
+import com.jeluchu.jchucomponents.core.extensions.strings.empty
 
 @OptIn(ExperimentalAnimationApi::class)
 @Composable

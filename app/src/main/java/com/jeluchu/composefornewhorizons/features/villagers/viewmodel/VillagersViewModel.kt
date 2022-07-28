@@ -4,9 +4,9 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.jeluchu.composefornewhorizons.features.villagers.models.VillagerItem
 import com.jeluchu.composefornewhorizons.features.villagers.repository.VillagersRepository
-import com.jeluchu.jchucomponentscompose.core.extensions.exception.handleFailure
-import com.jeluchu.jchucomponentscompose.core.extensions.strings.empty
-import com.jeluchu.jchucomponentscompose.utils.network.models.Resource
+import com.jeluchu.jchucomponents.core.extensions.exception.handleFailure
+import com.jeluchu.jchucomponents.core.extensions.strings.empty
+import com.jeluchu.jchucomponents.utils.network.models.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.*
 import javax.inject.Inject

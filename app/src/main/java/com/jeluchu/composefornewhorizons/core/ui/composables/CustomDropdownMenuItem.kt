@@ -12,8 +12,8 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.unit.dp
 import com.jeluchu.composefornewhorizons.core.ui.theme.cream
-import com.jeluchu.jchucomponentscompose.core.extensions.ints.isNotEmpty
-import com.jeluchu.jchucomponentscompose.core.extensions.strings.empty
+import com.jeluchu.jchucomponents.core.extensions.ints.isNotEmpty
+import com.jeluchu.jchucomponents.core.extensions.strings.empty
 
 @Composable
 fun CustomDropdownMenuItem(

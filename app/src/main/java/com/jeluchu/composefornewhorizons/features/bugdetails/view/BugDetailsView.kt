@@ -27,7 +27,7 @@ import com.jeluchu.composefornewhorizons.core.navigation.Navigate
 import com.jeluchu.composefornewhorizons.core.ui.composables.CustomText
 import com.jeluchu.composefornewhorizons.core.ui.theme.*
 import com.jeluchu.composefornewhorizons.features.bugdetails.viewmodel.BugDetailViewModel
-import com.jeluchu.jchucomponentscompose.ui.modifier.cornerRadius
+import com.jeluchu.jchucomponents.ui.modifier.cornerRadius
 import kotlinx.coroutines.launch
 
 @OptIn(

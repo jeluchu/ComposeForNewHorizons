@@ -1,11 +1,10 @@
 package com.jeluchu.composefornewhorizons.features.bugs.view
 
 import androidx.compose.animation.*
-import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.lazy.GridCells
-import androidx.compose.foundation.lazy.LazyVerticalGrid
-import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
+import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.material.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -19,7 +18,6 @@ import com.jeluchu.composefornewhorizons.core.ui.theme.artichoke
 import com.jeluchu.composefornewhorizons.core.ui.theme.cream
 import com.jeluchu.composefornewhorizons.features.bugs.viewmodel.BugsViewModel
 
-@OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun BugsView(
     navigate: Navigate,
@@ -133,7 +131,7 @@ fun BugsView(
                 // by columns, in this case we will put 2 cells so we will have, we indicate it
                 // with GridCells.Fixed(2) or GridCells.Adaptive(20.dp)
                 LazyVerticalGrid(
-                    cells = GridCells.Fixed(2),
+                    columns = GridCells.Fixed(2),
                     modifier = Modifier.padding(horizontal = 10.dp)
                 ) {
                     items(state.data) { item ->
